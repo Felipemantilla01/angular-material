@@ -4,21 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-import { MatButtonModule,  MatNativeDateModule, MatInputModule } from '@angular/material';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MaterialModule } from './material/material.module';
+import { FormsModule } from '@angular/forms';
+import { OnlyNumbersDirective } from './only-numbers.directive'
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    OnlyNumbersDirective
   ],
   imports: [ 
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

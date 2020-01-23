@@ -10,12 +10,80 @@
 </mat-form-field>
 <br>
 
-<p>
-  <mat-form-field appearance="legacy">
-    <mat-label>Legacy form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    <mat-hint>Hint</mat-hint>
+<div class="example-container">
+  <mat-form-field>
+    <input SysmanValidator pattern="[a-z]{1,15}" matInput placeholder="Input" >
   </mat-form-field>
-</p>
+<br>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Textarea"></textarea>
+  </mat-form-field>
+<br>
+
+
+<br>
+
+
+  <mat-form-field>
+    <mat-select placeholder="Select" [(ngModel)]="selected">
+      <mat-option  *ngFor="let register of registers" value="{{register}}"> {{register}} </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <label for="">  the item selected is: {{selected}}</label>
 </div>
+<br>
+
+
+
+
+<br>
+<mat-slider [(ngModel)]="slider"></mat-slider> <label for="">  slider value : {{slider}}</label>
+
+<br>
+
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Personal data
+      </mat-panel-title>
+      <mat-panel-description>
+        Type your name and age
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <input matInput placeholder="First name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Age">
+    </mat-form-field>
+  </mat-expansion-panel>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Self aware panel
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+
+
+
+
+
+
+
+
+</div>
+
+
