@@ -1,1 +1,21 @@
-<button mat-button>Hello world</button>
+<div class="container">
+  <button mat-button>Hello world</button>
+
+<mat-checkbox>Check it</mat-checkbox>
+<br>
+<mat-form-field>
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date" ngModule>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+<br>
+
+<p>
+  <mat-form-field appearance="legacy">
+    <mat-label>Legacy form field</mat-label>
+    <input matInput placeholder="Placeholder">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>Hint</mat-hint>
+  </mat-form-field>
+</p>
+</div>
