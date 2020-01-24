@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
-import { OnlyNumbersDirective } from './only-numbers.directive'
+import { SysmanValidatorDirective } from './sysman-validator.directive';
+import { SysmanFormatterDirective } from './sysman-formatter.directive'
+import { SysmanControlService } from './sysman-control.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OnlyNumbersDirective
+    SysmanValidatorDirective,
+    SysmanFormatterDirective
   ],
   imports: [ 
     BrowserModule,
@@ -20,7 +23,7 @@ import { OnlyNumbersDirective } from './only-numbers.directive'
     MaterialModule,
     FormsModule
   ],
-  providers: [],
+  providers: [SysmanControlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

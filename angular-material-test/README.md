@@ -1,13 +1,42 @@
-# Angular material test
+# Sysman Control Inputs 
+this lib conforms by the next files
+`1. sysman-control.service.ts`
+`2. sysman-validator.directive.ts`
+`3. sysman-formatter.directive.ts`
 
-## init the Angular project 
-to create the app `ng new angular-material-test`
+## Sysman validator 
+this is a directive that use for permit the entry of some chars in the field that contains them 
+```html
+<input SysmanValidator="onlyNumbers" matInput placeholder="onlyNumbers" >
+<input SysmanValidator="onlyLowerCaseLetters" matInput placeholder="onlyLowerCaseLetters" >
+```
+the input parameter is set in a json constant in the service `sysman-control.service.ts` that consumes.
 
-## adding the angular material 
-to install Angular Material `ng add @angular/material` and for more information [Angular-Material-Started](https://material.angular.io/guide/getting-started)
+if its necessary create a new rule add the ruleName and pattern in the json 
+```js
+const patterns = {
+  onlyNumbers: '1234567890',
+  onlyLowerCaseLetters: 'abcdefghijklmnñopqrstuvwxyz',
+  onlyUpperCaseLetters: 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ',
+  onlyLetters: 'abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ',
+  decimalNumbers:'1234567890.',
+  newRuleName: 'newpattern'
+}
+```
+the pattern are the chars accepted, and ruleName is the parameter that we pass to the directive
 
-### Use components
- to use components we need to import the component in the app.component.ts as `import { MatButtonModule } from '@angular/material';`, and add the component in the module imports.
- then just tagged in the html like `<button mat-button>Hello world</button>`
+## Sysman Formatter
+this directive change the format of the field that contains him
+```html
+<input SysmanFormatter='creditCard' matInput placeholder="SysmanFormatterCard" >
+<input SysmanFormatter='upperCase' matInput placeholder="SysmanFormatterUpper" >
+```
+the input parameter defines the accepted format in the field and ajust them
+if need add a new format, have to develop step by step and include in the service `sysman-control.service.ts` as a case on method formatter and the assing a formatName to the case and this is the string that we pass as parameter in te directive
 
- to use a different componentes of material, we need import his modules, so we created a new module called material use de angular cli `ng g m material` and inside them create a class with a lot of module components instanced -- to see the documentation of components [Angular-Material-Components](https://material.angular.io/components/categories)
+present formats :
+`1) upperCase `
+`1) lowerCase `
+`1) creditCard `
+``
+

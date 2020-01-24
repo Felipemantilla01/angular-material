@@ -11,4 +11,8 @@ export class AppComponent {
   public registers = ["angular", "vue", "react"]
   public selected = ""
   public slider =""
+
+  public value =""
+
+
 }
