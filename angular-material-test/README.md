@@ -4,6 +4,17 @@ this lib conforms by the next files
 `2. sysman-validator.directive.ts`
 `3. sysman-formatter.directive.ts`
 
+
+
+```mermaid
+graph LR
+A[sysman-control.service.ts] --> B[sysman-validator.directive.ts]
+A --> C[sysman-formatter.directive.ts]
+B --> D[Angular Components]
+C --> D
+```
+
+
 ## Sysman validator 
 this is a directive that use for permit the entry of some chars in the field that contains them 
 ```html
