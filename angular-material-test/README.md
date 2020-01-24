@@ -36,7 +36,10 @@ if need add a new format, have to develop step by step and include in the servic
 
 present formats :
 `1) upperCase `
-`1) lowerCase `
-`1) creditCard `
-``
+`2) lowerCase `
+`3) creditCard `
+`4) milesDots`
+
+## Sysman Control 
+this contains all functions required by the directives of this package. Is a service cause we need global access to the functions
 
