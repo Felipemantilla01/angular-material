@@ -1,14 +1,18 @@
 <form [formGroup]="checkoutForm">
 
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="Name" formControlName="name" >
-        <mat-hint [class.shows]="!hasError" class="text-error">{{errorMsg}}</mat-hint>
-        
-      </mat-form-field>
+        <input matInput placeholder="letters" formControlName="letters" SysmanValidator="letters">
+        <mat-hint [class.shows]="!lettersHasError" class="text-error">{{errorMsg}}</mat-hint>
+    </mat-form-field>
+<br>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="integer numbers" formControlName="intNumbers" SysmanValidator="intNumbers">
+        <mat-hint [class.shows]="!intNumberHasError" class="text-error">{{errorMsg}}</mat-hint>
+    </mat-form-field>
 <br>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Address" formControlName="address" >
-        <mat-hint [class.shows]="!hasError" class="text-error">{{errorMsg}}</mat-hint>
+        <input matInput placeholder="decimal numbers" formControlName="decNumbers" SysmanValidator="decNumbers">
+        <mat-hint [class.shows]="!decNumberHasError" class="text-error">{{errorMsg}}</mat-hint>
       </mat-form-field>
 <br>    
 <br>    

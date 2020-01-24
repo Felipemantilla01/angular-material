@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { isNull } from 'util';
+import { isEmptyExpression } from '@angular/compiler';
+import { isIPv4 } from 'net';
 
 @Component({
   selector: 'app-cart',
@@ -9,34 +11,41 @@ import { isNull } from 'util';
 })
 export class CartComponent implements OnInit {
 
-  public errorMsg = 'Campo solicitado'
-  public hasError = false
-  checkoutForm 
-  constructor(private _formBuilder:FormBuilder) {
-    
+  public errorMsg = 'This field is required'
+  public intNumberHasError = false
+  public lettersHasError = false
+  public decNumberHasError = false
+
+
+  checkoutForm
+  constructor(private _formBuilder: FormBuilder) {
+
 
     this.checkoutForm = this._formBuilder.group({
-      name: '',
-      address: ''
+      letters: '',
+      intNumbers: '',
+      decNumbers: ''
     });
-    this.checkoutForm.reset();
 
-   }
+  }
 
-   onSubmit(customerData) {
-    // Process checkout data here
-    
-    this.hasError = isNull(customerData.name) || isNull(customerData.address)
-    if(this.hasError){console.log('Campos requeridos sin ser llenados'); return}
+  onSubmit(customerData) {
+
+    this.intNumberHasError = isNull(customerData.intNumbers) || customerData.intNumbers==''
+    this.lettersHasError = isNull(customerData.letters) || customerData.letters==''
+    this.decNumberHasError = isNull(customerData.decNumbers) || customerData.decNumbers==''
+
+    if(this.intNumberHasError || this.lettersHasError || this.decNumberHasError)
+    {return}
     else{
-      console.log('Campos requeridos correctamente llenados')
+      console.log('Submit correcto')
+      console.warn(customerData)
     }
-    //console.log('hola')
-    //console.warn('Your order has been submitted', customerData);
+    
     this.checkoutForm.reset();
   }
 
-  
+
   ngOnInit() {
   }
 

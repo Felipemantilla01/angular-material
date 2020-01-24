@@ -11,12 +11,13 @@ export class SysmanFormatterDirective {
   constructor(private el: ElementRef, private _sysmanControl: SysmanControlService) { }
 
   ngOnInit() {
-    this.el.nativeElement.addEventListener('keyup', (event) => {
-      this.el.nativeElement.value = this._sysmanControl.formatter(event,this.el.nativeElement,this.typeFormat)
+    this.el.nativeElement.addEventListener('keydown', (event) => {
+      event.preventDefault()
+      this.el.nativeElement.value = this._sysmanControl.formatter(event, this.el.nativeElement, this.typeFormat)
     })
 
   }
-  
-/* End */
+
+  /* End */
 
 }
