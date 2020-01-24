@@ -1,0 +1,19 @@
+<form [formGroup]="checkoutForm">
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Name" formControlName="name" >
+        <mat-hint [class.shows]="!hasError" class="text-error">{{errorMsg}}</mat-hint>
+        
+      </mat-form-field>
+<br>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Address" formControlName="address" >
+        <mat-hint [class.shows]="!hasError" class="text-error">{{errorMsg}}</mat-hint>
+      </mat-form-field>
+<br>    
+<br>    
+      
+
+    <button mat-raised-button class="button" type="submit" (click)="onSubmit(checkoutForm.value)" >Purchase</button>
+  
+  </form>
