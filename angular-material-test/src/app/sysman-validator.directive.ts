@@ -13,7 +13,7 @@ export class SysmanValidatorDirective {
   ngOnInit() {
     this.el.nativeElement.addEventListener('keydown', (event) => {
 
-      console.log(event.keyCode)
+      //console.log(event.keyCode)
       let code = event.keyCode
       switch (this.typeValidator) {
         case 'letters':
@@ -26,7 +26,6 @@ export class SysmanValidatorDirective {
           if (!((code > 46 && code < 65) || (code > 95 && code < 106) || code == 8 || code == 32 || code == 9 || code==188 )) { event.preventDefault() }
           break;
       }
-
 
     })
   }

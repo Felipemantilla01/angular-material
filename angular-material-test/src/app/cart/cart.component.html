@@ -1,5 +1,6 @@
-<form [formGroup]="checkoutForm">
-
+<h2>Sysman Validators with reactive form exmaple
+</h2>
+<form [formGroup]="checkoutForm" autocomplete="off" >
     <mat-form-field class="example-full-width">
         <input matInput placeholder="letters" formControlName="letters" SysmanValidator="letters">
         <mat-hint [class.shows]="!lettersHasError" class="text-error">{{errorMsg}}</mat-hint>
@@ -16,8 +17,6 @@
       </mat-form-field>
 <br>    
 <br>    
-      
-
     <button mat-raised-button class="button" type="submit" (click)="onSubmit(checkoutForm.value)" >Purchase</button>
   
   </form>
